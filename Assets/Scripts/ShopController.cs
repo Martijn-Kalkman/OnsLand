@@ -14,10 +14,23 @@ public class ShopController : MonoBehaviour
 
     public void BuyItem()
     {
+        if (currency >= 10)
+        {
+            currency -= 10;
+            UpdateCurrencyText();
+            Debug.Log("BuyItem clicked!");
+        }
+        else
+        {
+            Debug.LogError("You are out of currency!");
+        }
+    }
+
+    public void SellItem()
+    {
         currency += 10;
         UpdateCurrencyText();
-        Debug.Log("BuyItem clicked!");
-
+        Debug.Log("SellItem clicked!");
     }
 
     void UpdateCurrencyText()
